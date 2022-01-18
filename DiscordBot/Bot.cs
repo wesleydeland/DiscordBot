@@ -7,6 +7,8 @@ using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.EventArgs;
 using Newtonsoft.Json;
+using DSharpPlus.Interactivity;
+using DSharpPlus.Interactivity.Extensions;
 
 namespace DiscordBot
 {
@@ -51,8 +53,15 @@ namespace DiscordBot
 				DmHelp = true
 			};
 
+			Client.UseInteractivity(new InteractivityConfiguration
+            {
+
+            });
+
 			Commands = Client.UseCommandsNext(commandsConfig);
 			Commands.RegisterCommands<FunCommands>();
+			Commands.RegisterCommands<AdminCommands>();
+			Commands.RegisterCommands<TeamCommands>();
 
 			await Client.ConnectAsync();
 			await Task.Delay(-1);

@@ -21,6 +21,8 @@ namespace DiscordBot.Commands
 			int result = a + b;
 			await ctx.Channel.SendMessageAsync(result.ToString()).ConfigureAwait(false);
 		}
+
+		
 	}
 }
 
